@@ -72,5 +72,5 @@ pub struct Context {
     pub threshold: RW<u32>,
     /// 0x4 claim/complete for context
     pub claim_complete: RW<u32>,
-    _reserved: [u32; 1022],
+    pub reserved: [RW<u32>; 1022],
 }

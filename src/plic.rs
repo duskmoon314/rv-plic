@@ -139,4 +139,18 @@ impl<const BASE: usize, const BIT: usize> PLIC<BASE, BIT> {
                 .write(interrupt as u32)
         }
     }
+
+    /// Read context reserved
+    ///
+    /// context.reserved[address], which is after claim/complete
+    pub fn get_context_reserved(context: usize, address: usize) -> u32 {
+        unsafe { (*Self::REGS).context[context].reserved[address].read() }
+    }
+
+    /// Write context reserved
+    ///
+    /// context.reserved[address], which is after claim/complete
+    pub fn set_context_reserved(context: usize, address: usize, value: u32) {
+        unsafe { (*Self::REGS).context[context].reserved[address].write(value) }
+    }
 }
