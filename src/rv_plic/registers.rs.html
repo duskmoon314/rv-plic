@@ -152,7 +152,7 @@ REF: [RISC-V Platform-Level Interrupt Controller Specification](https://github.c
     <span class="kw">pub</span> <span class="ident">threshold</span>: <span class="ident">RW</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>,
     <span class="doccomment">/// 0x4 claim/complete for context</span>
     <span class="kw">pub</span> <span class="ident">claim_complete</span>: <span class="ident">RW</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>,
-    <span class="ident">_reserved</span>: [<span class="ident">u32</span>; <span class="number">1022</span>],
+    <span class="kw">pub</span> <span class="ident">reserved</span>: [<span class="ident">RW</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>; <span class="number">1022</span>],
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="rv_plic" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>

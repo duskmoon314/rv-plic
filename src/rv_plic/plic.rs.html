@@ -143,6 +143,20 @@
 <span id="140">140</span>
 <span id="141">141</span>
 <span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">/*!
 Platform Level Interrupt Controller
@@ -284,6 +298,20 @@ Platform Level Interrupt Controller
                 .<span class="ident">claim_complete</span>
                 .<span class="ident">write</span>(<span class="ident">interrupt</span> <span class="kw">as</span> <span class="ident">u32</span>)
         }
+    }
+
+    <span class="doccomment">/// Read context reserved</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// context.reserved[address], which is after claim/complete</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_context_reserved</span>(<span class="ident">context</span>: <span class="ident">usize</span>, <span class="ident">address</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+        <span class="kw">unsafe</span> { (<span class="kw-2">*</span><span class="self">Self</span><span class="ident">::REGS</span>).<span class="ident">context</span>[<span class="ident">context</span>].<span class="ident">reserved</span>[<span class="ident">address</span>].<span class="ident">read</span>() }
+    }
+
+    <span class="doccomment">/// Write context reserved</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// context.reserved[address], which is after claim/complete</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_context_reserved</span>(<span class="ident">context</span>: <span class="ident">usize</span>, <span class="ident">address</span>: <span class="ident">usize</span>, <span class="ident">value</span>: <span class="ident">u32</span>) {
+        <span class="kw">unsafe</span> { (<span class="kw-2">*</span><span class="self">Self</span><span class="ident">::REGS</span>).<span class="ident">context</span>[<span class="ident">context</span>].<span class="ident">reserved</span>[<span class="ident">address</span>].<span class="ident">write</span>(<span class="ident">value</span>) }
     }
 }
 </pre></div>
