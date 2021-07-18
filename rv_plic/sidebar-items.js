@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["plic","Platform Level Interrupt Controller"],["registers","Platform Level Interrupt Controller Registers"]]});

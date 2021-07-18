@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["PLIC",""],["Priority","Priority of interrupt BIT = 3 => priority = 0..=7, 0 means never trigger"]]});

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["rv_plic"] = [{"text":"impl&lt;const BIT:&nbsp;usize&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html\" title=\"trait core::clone::Clone\">Clone</a> for <a class=\"struct\" href=\"rv_plic/plic/struct.Priority.html\" title=\"struct rv_plic::plic::Priority\">Priority</a>&lt;BIT&gt;","synthetic":false,"types":["rv_plic::plic::Priority"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
