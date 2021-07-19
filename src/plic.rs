@@ -61,13 +61,13 @@ impl<const BIT: usize> From<Priority<BIT>> for u32 {
 /// Set qemu virt machine uart:
 ///
 /// ```no_run
-/// # use rv_plic;
+/// # use rv_plic::*;
 /// pub const PLIC_BASE: usize = 0xc00_0000;
 /// pub const PLIC_PRIORITY_BIT: usize = 3;
-/// type PLIC = rv_plic::PLIC<PLIC_BASE, BIT>;
-/// PLIC::set_threshold(1, Priority::any());
-/// PLIC::enable(1, 10);
-/// PLIC::set_priority(10, Priority::lowest());
+/// type plic = PLIC<PLIC_BASE, PLIC_PRIORITY_BIT>;
+/// plic::set_threshold(1, Priority::any());
+/// plic::enable(1, 10);
+/// plic::set_priority(10, Priority::lowest());
 /// ```
 pub struct PLIC<const BASE: usize, const BIT: usize>;
 
