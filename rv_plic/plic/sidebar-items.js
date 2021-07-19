@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PLIC",""],["Priority","Priority of interrupt BIT = 3 => priority = 0..=7, 0 means never trigger"]]});
+initSidebarItems({"struct":[["PLIC","Platform Level Interrupt Controller"],["Priority","Priority of interrupt"]]});
