@@ -5,6 +5,7 @@ Platform Level Interrupt Controller
 use crate::registers;
 
 /// Priority of interrupt
+///
 /// BIT = 3 => priority = 0..=7, 0 means never trigger
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Priority<const BIT: usize>(pub(crate) u32);
@@ -53,6 +54,21 @@ impl<const BIT: usize> From<Priority<BIT>> for u32 {
     }
 }
 
+/// # Platform Level Interrupt Controller
+///
+/// ## Usage
+///
+/// Set qemu virt machine uart:
+///
+/// ```no_run
+/// # use rv_plic;
+/// pub const PLIC_BASE: usize = 0xc00_0000;
+/// pub const PLIC_PRIORITY_BIT: usize = 3;
+/// type PLIC = rv_plic::PLIC<PLIC_BASE, BIT>;
+/// PLIC::set_threshold(1, Priority::any());
+/// PLIC::enable(1, 10);
+/// PLIC::set_priority(10, Priority::lowest());
+/// ```
 pub struct PLIC<const BASE: usize, const BIT: usize>;
 
 impl<const BASE: usize, const BIT: usize> PLIC<BASE, BIT> {
@@ -142,14 +158,14 @@ impl<const BASE: usize, const BIT: usize> PLIC<BASE, BIT> {
 
     /// Read context reserved
     ///
-    /// context.reserved[address], which is after claim/complete
+    /// `context.reserved[address]`, which is after claim/complete
     pub fn get_context_reserved(context: usize, address: usize) -> u32 {
         unsafe { (*Self::REGS).context[context].reserved[address].read() }
     }
 
     /// Write context reserved
     ///
-    /// context.reserved[address], which is after claim/complete
+    /// `context.reserved[address]`, which is after claim/complete
     pub fn set_context_reserved(context: usize, address: usize, value: u32) {
         unsafe { (*Self::REGS).context[context].reserved[address].write(value) }
     }
