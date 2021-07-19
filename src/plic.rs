@@ -107,6 +107,21 @@ impl<const BASE: usize, const BIT: usize> PLIC<BASE, BIT> {
         }
     }
 
+    /// Get a 32bit register in enable of context `c`
+    pub fn get_enable(context: usize, index: usize) -> u32 {
+        unsafe { (*Self::REGS).enable[context].enables[index].read() }
+    }
+
+    /// Set a 32bit register in enable of context `c`
+    pub fn set_enable(context: usize, index: usize, value: u32) {
+        unsafe { (*Self::REGS).enable[context].enables[index].modify(|_| value) }
+    }
+
+    /// Clear a 32bit register in enable of context `C`
+    pub fn clear_enable(context: usize, index: usize) {
+        unsafe { (*Self::REGS).enable[context].enables[index].modify(|_| 0) }
+    }
+
     /// Get interrupt `i` priority
     pub fn get_priority(interrupt: u16) -> Priority<BIT> {
         unsafe { (*Self::REGS).priority[interrupt as usize].read().into() }
