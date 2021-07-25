@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.4.0
+
+Add `context_address` to get the address of a context
+
 ## 0.3.0
 
 Add `get_enable` `set_enable` `clear_enable` to modify a 32bit register in enable of a context

@@ -153,6 +153,11 @@ impl<const BASE: usize, const BIT: usize> PLIC<BASE, BIT> {
         }
     }
 
+    /// Get context address
+    pub fn context_address(context: usize) -> usize {
+        unsafe { &(*Self::REGS).context[context] as *const _ as usize }
+    }
+
     /// Claim interrupt
     pub fn claim(context: usize) -> Option<u16> {
         let irq = unsafe { (*Self::REGS).context[context].claim_complete.read() };
