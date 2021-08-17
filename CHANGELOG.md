@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.5.0
+
+**BREAKING CHANGE** Restructured PLIC
+
 ## 0.4.0
 
 Add `context_address` to get the address of a context
